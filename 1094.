@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+#define MAX_DISTANCE 1001  // Adjust if needed
+
+bool carPooling(int** trips, int tripsSize, int* tripsColSize, int capacity) {
+    int passengerChange[MAX_DISTANCE] = {0};
+
+    for (int i = 0; i < tripsSize; i++) {
+        int numPassengers = trips[i][0];
+        int from = trips[i][1];
+        int to = trips[i][2];
+
+        passengerChange[from] += numPassengers;
+        passengerChange[to] -= numPassengers;
+    }
+
+    int currentPassengers = 0;
+    for (int i = 0; i < MAX_DISTANCE; i++) {
+        currentPassengers += passengerChange[i];
+        if (currentPassengers > capacity) {
+            return false;
+        }
+    }
+
+    return true;
+}
