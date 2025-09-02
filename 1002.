@@ -4,8 +4,7 @@
 
 char** commonChars(char** words, int wordsSize, int* returnSize) {
     int minFreq[26];
-    for (int i = 0; i < 26; i++) minFreq[i] = 100; // max possible count
-
+    for (int i = 0; i < 26; i++) minFreq[i] = 100; 
     for (int w = 0; w < wordsSize; w++) {
         int freq[26] = {0};
         for (int i = 0; words[w][i]; i++)
