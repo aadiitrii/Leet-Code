@@ -1,0 +1,14 @@
+int partitionDisjoint(int* nums, int numsSize) {
+    int max_left = nums[0];
+    int max_seen = nums[0];
+    int partition_idx = 0;
+    for (int i = 1; i < numsSize; i++) {
+        if (nums[i] < max_left) {
+            partition_idx = i;
+            max_left = max_seen;
+        } else if (nums[i] > max_seen) {
+            max_seen = nums[i];
+        }
+    }
+    return partition_idx + 1;
+}
