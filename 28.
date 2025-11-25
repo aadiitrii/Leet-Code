@@ -1,0 +1,9 @@
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        n, m = len(haystack), len(needle)
+        for i in range(n - m + 1):
+            window = haystack[i:i+m]
+            print(f"Checking window '{window}' at index {i}")
+            if window == needle:
+                return i
+        return -1
