@@ -1,0 +1,12 @@
+int wordToNum(const char *word) {
+    char numStr[100];
+    int idx = 0;
+    for (int i = 0; word[i] != '\0'; i++) {
+        int digit = word[i] - 'a';
+        idx += sprintf(numStr + idx, "%d", digit);
+    }
+    return atoi(numStr);
+}
+int isSumEqual(const char *firstWord, const char *secondWord, const char *targetWord) {
+    return wordToNum(firstWord) + wordToNum(secondWord) == wordToNum(targetWord);
+}
